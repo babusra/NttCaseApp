@@ -6,7 +6,7 @@ import productCardStyle from '../styles/productCardStyle';
 import {Colors} from '../utils/Colors';
 import {Product} from '../types/Product/ProductModel';
 import {useDispatch} from 'react-redux';
-import { addToBasketAction } from '../reduxToolkit/features/MainSlices/ProductSlice';
+import { addToBasketAction, addToFavoritesAction } from '../reduxToolkit/features/MainSlices/ProductSlice';
 
 interface Props {
   product: Product;
@@ -21,8 +21,9 @@ const ProductCard: FC<Props> = props => {
     dispatch(addToBasketAction(item));
   };
 
-
-  return (
+  const addToFavorites = (item: Product) => {
+    dispatch(addToFavoritesAction(item));
+  };  return (
     <TouchableOpacity
       onPress={
         () => {}
@@ -35,7 +36,7 @@ const ProductCard: FC<Props> = props => {
           source={{uri: product.imageUrl}}
         />
         <TouchableOpacity
-          onPress={() => {}}
+          onPress={()=>addToFavorites(product)} 
           style={{position: 'absolute', right: 5}}>
           <Icon
             name={product.isFavorite ? 'heart' : 'hearto'}
