@@ -7,30 +7,44 @@ import {Product} from '../../../types/Product/ProductModel';
 import {useDispatch, useSelector} from 'react-redux';
 import {allProductAction} from '../../../reduxToolkit/features/MainSlices/ProductSlice';
 import {RootState} from '../../../reduxToolkit/store';
+import {setHasRequested} from '../../../reduxToolkit/features/MainSlices/RequestSlice';
 
 const useProductListManager = () => {
-  // const [products, setProducts] = React.useState<Product[]>([]);
   const dispatch = useDispatch();
-  const products = useSelector((state: RootState) => state.product.value.allProducts);
+  const products = useSelector(
+    (state: RootState) => state.product.value.allProducts,
+  );
+  const hasRequested = useSelector(
+    (state: RootState) => state.request.value.hasRequested,
+  );
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   useEffect(() => {
-    setIsLoading(true);
-    axios
-      .get(getAllProduct)
-      .then((res: any) => {
-        setIsLoading(false);
-        dispatch(allProductAction(res?.data));
-      })
-      .catch((err: any) => {
-        setIsLoading(false);
-        console.log(err);
-      });
+    if (!hasRequested) {
+      setIsLoading(true);
+      axios
+        .get(getAllProduct)
+        .then((res: any) => {
+          setIsLoading(false);
+          dispatch(setHasRequested(true));
+          dispatch(allProductAction(res?.data));
+        })
+        .catch((err: any) => {
+          setIsLoading(false);
+          dispatch(setHasRequested(true));
+
+          console.log(err);
+        });
+    }
   }, []);
+
+  useEffect(() => {
+    console.log(products);
+  }, [products]);
 
   return {
     isLoading,
-    products
+    products,
   };
 };
 
