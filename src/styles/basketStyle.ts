@@ -4,8 +4,10 @@ import {horizontalScale, moderateScale} from '../utils/Dimension';
 
 const basketStyle = StyleSheet.create({
   body: {
-    paddingHorizontal: horizontalScale(15),
     flex: 1,
+    backgroundColor:Colors.white,
+    paddingHorizontal: horizontalScale(15),
+
   },
   button: {
     backgroundColor: Colors.blue,
@@ -18,6 +20,16 @@ const basketStyle = StyleSheet.create({
     padding: moderateScale(7),
     textAlign: 'center',
   },
+  bottomBar:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    position: 'absolute',
+    width: '100%',
+    alignSelf: 'center',
+    bottom: moderateScale(10),
+   
+
+  }
 });
 
 export default basketStyle;
