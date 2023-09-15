@@ -34,7 +34,6 @@ const ProductList: FC<Props> = props => {
       numColumns={2}
       key={'productList'}
       showsVerticalScrollIndicator={false}
-      scrollEnabled={false}
       keyExtractor={(item: Product, index: number) =>
         index.toString() + 'product'
       }
