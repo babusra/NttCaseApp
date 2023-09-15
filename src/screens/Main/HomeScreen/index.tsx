@@ -4,7 +4,7 @@ import React, {FC} from 'react';
 const HomeScreen: FC = () => {
   return (
     <View>
-      <Text>:dfgfgdfg</Text>
+      <Text>HomeScreen</Text>
     </View>
   );
 };

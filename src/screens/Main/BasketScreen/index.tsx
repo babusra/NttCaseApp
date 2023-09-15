@@ -1,7 +1,7 @@
 import {View, Text, TouchableOpacity} from 'react-native';
 import React, {FC} from 'react';
 import ProductListInBasket from '../../../contents/ProductListInBasket';
-import { moderateScale } from '../../../utils/Dimension';
+import { horizontalScale, moderateScale } from '../../../utils/Dimension';
 import { Colors } from '../../../utils/Colors';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../reduxToolkit/store';
@@ -16,20 +16,13 @@ const BasketScreen: FC = () => {
     <SafeAreaView style={basketStyle.body}>
       <ProductListInBasket />
       <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          position: 'absolute',
-          width: '100%',
-          alignSelf: 'center',
-          bottom: moderateScale(10),
-        }}>
+        style={basketStyle.bottomBar}>
         <View>
-          <Text style={{color: Colors.blue, fontSize: 16}}>Price:</Text>
+          <Text style={{color: Colors.blue, fontSize: 16}}>Toplam:</Text>
           <Text>{totalProductPrice} ₺</Text>
         </View>
         <TouchableOpacity style={basketStyle.button}>
-          <Text style={basketStyle.button_text}>Complete</Text>
+          <Text style={basketStyle.button_text}>Tamamla</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
