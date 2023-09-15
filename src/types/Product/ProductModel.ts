@@ -5,6 +5,6 @@ export type Product = {
   imageUrl: string;
   price: string;
   shippingMethod: string;
-  isFavorite?: boolean;
-  total?:number
+  isFavorite: boolean;
+  total:number
 };
