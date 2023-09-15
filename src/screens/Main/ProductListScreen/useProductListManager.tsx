@@ -38,9 +38,7 @@ const useProductListManager = () => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(products);
-  }, [products]);
+
 
   return {
     isLoading,
