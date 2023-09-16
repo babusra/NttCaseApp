@@ -6,20 +6,32 @@ const loginStyles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: Colors.white,
+      paddingHorizontal:moderateScale(20),
+      paddingTop:moderateScale(40)
+      
     },
-    body: {
-      paddingHorizontal: 20,
-    },
+   remember_button:{
+    alignSelf: 'flex-end',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  icon:{
+    borderWidth: 1,
+    borderRadius: 4,
+    borderColor:Colors.darkGrey,
+    marginHorizontal: moderateScale(10),
+    color:Colors.darkGrey
+  },
     header: {
       fontSize: 30,
       alignSelf: 'center',
       paddingVertical: verticalScale(30),
-      color: Colors.blue,
+      color: Colors.purple,
     },
     input: {
       borderWidth: 1,
-      borderColor: Colors.grey,
-      height: verticalScale(40),
+      borderColor: Colors.lightGrey,
+      height: verticalScale(45),
       borderRadius: 8,
       marginVertical: verticalScale(8),
       paddingHorizontal: horizontalScale(8),
@@ -27,8 +39,9 @@ const loginStyles = StyleSheet.create({
     },
     button: {
       borderRadius: 8,
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.purple,
       height: verticalScale(45),
+      marginTop:moderateScale(40),
       width: horizontalScale(200),
       alignSelf: 'center',
       alignItems: 'center',
