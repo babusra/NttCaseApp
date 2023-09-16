@@ -10,7 +10,7 @@ const basketStyle = StyleSheet.create({
 
   },
   button: {
-    backgroundColor: Colors.blue,
+    backgroundColor: Colors.purple,
     borderRadius: 4,
     width: horizontalScale(150),
   },

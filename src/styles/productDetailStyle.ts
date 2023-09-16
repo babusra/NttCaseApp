@@ -61,7 +61,7 @@ const productDetailStyle = StyleSheet.create({
     bottom: moderateScale(40),
   },
   add_basket_button: {
-    backgroundColor: Colors.blue,
+    backgroundColor: Colors.purple,
     borderRadius: 4,
     width: horizontalScale(150),
   },

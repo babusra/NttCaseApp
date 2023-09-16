@@ -31,7 +31,7 @@ const ProductCardInFavorites: FC<Props> = props => {
       <View style={productCardFavStyle.body}>
         <View>
           <Text>{product.name}</Text>
-          <Text style={{color: Colors.blue}}>{product.price} ₺</Text>
+          <Text style={{color: Colors.purple}}>{product.price} ₺</Text>
         </View>
         <TouchableOpacity
           onPress={() => addToFavorites(product)}

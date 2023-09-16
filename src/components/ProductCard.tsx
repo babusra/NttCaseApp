@@ -92,7 +92,7 @@ const ProductCard: FC<Props> = props => {
         <TouchableOpacity
           onPress={() => onAddToBasket(product)}
           style={productCardStyle.button}>
-          <Text style={productCardStyle.button_text}>Sepete Ekle</Text>
+          <Text style={productCardStyle.button_text}>Ekle</Text>
         </TouchableOpacity>
       )}
     </TouchableOpacity>

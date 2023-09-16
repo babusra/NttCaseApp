@@ -5,7 +5,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import ProductCard from '../components/ProductCard';
 import {Colors} from '../utils/Colors';
 import {Product} from '../types/Product/ProductModel';
@@ -30,18 +30,20 @@ const ProductList: FC<Props> = props => {
         alignItems: 'center',
         justifyContent: 'center',
       }}
+
       data={products}
       numColumns={2}
       key={'productList'}
       showsVerticalScrollIndicator={false}
-      keyExtractor={(item: Product, index: number) =>
-        index.toString() + 'product'
-      }
+
+      keyExtractor={(item: Product, index: number) => index.toString() + 'product' }
+
       renderItem={({item}) => {
         return <ProductCard product={item} />;
       }}
+      
       ListEmptyComponent={
-        <ActivityIndicator size={'large'} color={Colors.blue} />
+        <ActivityIndicator size={'large'} color={Colors.purple} />
       }
       ListHeaderComponent={
         <View style={productListStyle.list_header}>
@@ -49,7 +51,7 @@ const ProductList: FC<Props> = props => {
           <TouchableOpacity
             style={productListStyle.sort_button}
             onPress={() => setVisible(!visible)}>
-            <Text style={{color: Colors.blue, fontWeight: '600'}}>
+            <Text style={{color: Colors.purple, fontWeight: '600'}}>
               {buttonText}
             </Text>
           </TouchableOpacity>

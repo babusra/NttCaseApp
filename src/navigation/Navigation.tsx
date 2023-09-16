@@ -24,8 +24,8 @@ const Navigation = () => {
         tabBar={props => <BottomTabBar {...props} />}>
         <Tab.Screen name={'Ana Ekran'} options={{tabBarIcon:"home"}} component={HomeScreen} />
         <Tab.Screen name={'Favoriler'} options={{tabBarIcon:"heart"}} component={FavoritesScreen} />
-        <Tab.Screen name={'Ürünler'} options={{tabBarIcon:"list"}} component={ProductListScreen} />
-        <Tab.Screen name={'Sepetim'} options={{tabBarIcon:"shopping-basket"}} component={BasketScreen} />
+        <Tab.Screen name={'Ürünler'} options={{tabBarIcon:"th-list"}} component={ProductListScreen} />
+        <Tab.Screen name={'Sepetim'} options={{tabBarIcon:"shopping-cart"}} component={BasketScreen} />
 
 
 

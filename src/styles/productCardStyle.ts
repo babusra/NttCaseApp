@@ -4,14 +4,18 @@ import { verticalScale, horizontalScale, moderateScale } from '../utils/Dimensio
 
 const productCardStyle = StyleSheet.create({
     container: {
-        borderWidth: 2,
         borderColor: Colors.grey,
         borderRadius: 10,
         height: verticalScale(270),
         width: horizontalScale(150),
         justifyContent: 'space-between',
         margin: moderateScale(10),
-        backgroundColor:Colors.white
+        backgroundColor:Colors.white,
+        elevation: 5, // Android için gölge efekti
+        shadowColor: 'black', // iOS için gölge rengi
+        shadowOffset: { width: 0, height: 2 }, // iOS için gölge offset
+        shadowOpacity: 0.3, // iOS için gölge opaklığı
+        shadowRadius: 3, // iOS için gölge yarıçapı
       },
       image: {
         width: '100%',
@@ -22,7 +26,7 @@ const productCardStyle = StyleSheet.create({
 
       },
       text_price: {
-        color: Colors.blue,
+        color: Colors.purple,
         paddingHorizontal:moderateScale(8),
         paddingVertical:moderateScale(5)
       },
@@ -32,9 +36,9 @@ const productCardStyle = StyleSheet.create({
 
       },
       button: {
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.purple,
         borderRadius: 8,
-        margin:moderateScale(8)
+        margin:moderateScale(8),
 
         
       },

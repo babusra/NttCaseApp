@@ -14,8 +14,8 @@ const productListStyle = StyleSheet.create({
     paddingHorizontal: moderateScale(10),
     paddingVertical: moderateScale(5),
     borderRadius: 15,
-    borderColor: Colors.blue,
-    backgroundColor:'#CCEBFA'
+    borderColor: Colors.purple,
+    backgroundColor:'#EDE7F6'
   },
   buttons_container: {
     padding: moderateScale(30),
@@ -28,7 +28,7 @@ const productListStyle = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     borderWidth: 1,
-    borderColor:Colors.blue
+    borderColor:Colors.purple
 
   },
 });

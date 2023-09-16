@@ -18,7 +18,7 @@ const BasketScreen: FC = () => {
       <View
         style={basketStyle.bottomBar}>
         <View>
-          <Text style={{color: Colors.blue, fontSize: 16}}>Toplam:</Text>
+          <Text style={{color: Colors.purple, fontSize: 16}}>Toplam:</Text>
           <Text>{totalProductPrice} ₺</Text>
         </View>
         <TouchableOpacity style={basketStyle.button}>
