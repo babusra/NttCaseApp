@@ -23,15 +23,17 @@ const useMapManager = () => {
   const [visible, setVisible] = useState(false);
   const mapViewRef = React.useRef<any>(null);
   const moveMap = () => {
-    mapViewRef?.current.animateToRegion({
+    mapViewRef?.current?.animateToRegion({
       ...marker,
       latitudeDelta: 0.07,
       longitudeDelta: 0.07,
-    });
+    },500);
   };
   const key = 'coordinate';
 
   useEffect(() => {
+    moveMap();
+
     axios
       .get(
         `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${marker.latitude},${marker.longitude}&radius=1500&key=${apiKey}`,
@@ -54,6 +56,10 @@ const useMapManager = () => {
     moveMap();
   }, [marker]);
 
+  setTimeout(() => {
+    moveMap();
+  }, 1000);
+
   return {
     mapViewRef,
     initialRegion,
@@ -64,6 +70,7 @@ const useMapManager = () => {
     apiKey,
     formattedAddress,
     key,
+    setFormattedAddress,
     marker,
   };
 };
