@@ -13,6 +13,16 @@ const productCardInBasketStyle = StyleSheet.create({
     paddingVertical: 10,
     borderBottomColor: Colors.grey,
   },
+  trash_container:{
+    position: 'absolute',
+    right: 0,
+    bottom:0,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: Colors.red,
+    padding: 20,
+  },
   image: {
     width: moderateScale(70),
     height: moderateScale(70),
@@ -21,7 +31,7 @@ const productCardInBasketStyle = StyleSheet.create({
   amount_text: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.blue,
+    backgroundColor: Colors.purple,
     width: moderateScale(30),
   },
   buttonMinus: {

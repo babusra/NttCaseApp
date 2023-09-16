@@ -72,6 +72,19 @@ const ProductSlice = createSlice({
       );
     },
 
+    removeFromBasket: (state, action: PayloadAction<Product>) => {
+      const productToRemove = action.payload;
+      const productIndex = state.value.allProducts.findIndex(
+        product => product.id === action.payload.id,
+      );
+      state.value.allProducts[productIndex].total = 0;
+      const updatedBasket = state.value.productsInBasket.filter(
+        product => product.id !== productToRemove.id,
+      );
+
+      state.value.productsInBasket = updatedBasket;
+    },
+
     productAmountIncrement: (state, action: PayloadAction<Product>) => {
       const product = state.value.productsInBasket.find(
         item => item.id === action.payload.id,
@@ -123,17 +136,17 @@ const ProductSlice = createSlice({
     sortProducts: (state, action) => {
       switch (action.payload) {
         case 'Ascending':
-           state.value.allProducts.sort(
+          state.value.allProducts.sort(
             (a, b) => Number(b.price) - Number(a.price),
           );
-          break
+          break;
         case 'Descending':
-           state.value.allProducts.sort(
+          state.value.allProducts.sort(
             (a, b) => Number(a.price) - Number(b.price),
           );
-          break
+          break;
         default:
-           break
+          break;
       }
     },
   },
@@ -146,5 +159,6 @@ export const {
   productAmountDecrement,
   productAmountIncrement,
   addToFavoritesAction,
-  sortProducts
+  sortProducts,
+  removeFromBasket,
 } = ProductSlice.actions;

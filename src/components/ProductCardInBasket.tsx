@@ -22,7 +22,7 @@ const ProductCardInBasket: FC<Props> = props => {
       />
       <View>
         <Text>{product.name}</Text>
-        <Text style={{color: Colors.blue}}>{product.price} ₺</Text>
+        <Text style={{color: Colors.purple}}>{product.price} ₺</Text>
       </View>
       <View style={{flexDirection: 'row'}}>
         <TouchableOpacity onPress={() => decrementProductAmount(product)}>
