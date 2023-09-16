@@ -35,7 +35,6 @@ const ProductListInFavorites = () => {
       ListEmptyComponent={
         <View
           style={{
-            height: '100%',
             alignItems: 'center',
             justifyContent: 'center',
           }}>

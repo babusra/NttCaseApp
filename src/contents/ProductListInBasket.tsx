@@ -40,13 +40,12 @@ const ProductListInBasket: FC = () => {
       ListEmptyComponent={
         <View
           style={{
-            height: '100%',
             alignItems: 'center',
             justifyContent: 'center',
           }}>
           <Text
             style={{fontSize: 15, fontStyle: 'italic', color: Colors.darkGrey}}>
-            Henüz Favorilediğiniz ürün bulunmuyor..
+            Henüz sepetinizde ürün bulunmuyor..
           </Text>
         </View>
       }
