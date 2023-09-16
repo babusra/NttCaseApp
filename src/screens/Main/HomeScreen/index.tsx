@@ -1,20 +1,73 @@
 import {View, Text, StyleSheet} from 'react-native';
-import React, {FC} from 'react';
-import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
+import React, {FC, useEffect, useState} from 'react';
+import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import BottomModal from '../../../components/BottomModal';
+import {moderateScale} from '../../../utils/Dimension';
+import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
+import useMapManager from './useMapManager';
+import Location from '../../../contents/Location';
 
 const HomeScreen: FC = () => {
+  const {
+    mapViewRef,
+    initialRegion,
+    visible,
+    setVisible,
+    moveMap,
+    setMarker,
+    apiKey,
+    marker,
+    formattedAddress,
+  } = useMapManager();
   return (
     <View style={styles.container}>
       <MapView
-        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+        ref={mapViewRef}
+        provider={PROVIDER_GOOGLE}
         style={styles.map}
-        
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}></MapView>
+        initialRegion={initialRegion}
+        onMarkerPress={() => setVisible(!visible)}
+        onMapReady={() => moveMap()}>
+
+
+        <View style={{paddingTop: 30, height: moderateScale(280)}}>
+          <GooglePlacesAutocomplete
+            placeholder="Search"
+            onPress={(data, details) => {
+              console.log(data, details);
+              setMarker({
+                latitude: details?.geometry.location.lat,
+                longitude: details?.geometry.location.lng,
+              });
+            }}
+            fetchDetails={true}
+            query={{
+              key: apiKey,
+              language: 'tr',
+            }}
+            styles={{
+              textInput:styles.textInput,
+              predefinedPlacesDescription: {
+                color: '#1faadb',
+              },
+              listView: {marginHorizontal: moderateScale(20)},
+            }}
+          />
+        </View>
+        <Marker
+          draggable
+          coordinate={marker}
+          onDragEnd={e => {
+            setMarker(e.nativeEvent.coordinate);
+            setVisible(!visible);
+          }}
+        />
+      </MapView>
+      <BottomModal
+        visible={visible}
+        toggleBottomNavigationView={() => setVisible(!visible)}
+        content={<Location formattedAddress={formattedAddress} />}
+      />
     </View>
   );
 };
@@ -27,9 +80,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    borderWidth:2
   },
   map: {
     ...StyleSheet.absoluteFillObject,
   },
+  textInput: {
+    height: 50,
+    color: '#5d5d5d',
+    fontSize: 16,
+    marginTop: moderateScale(40),
+    marginHorizontal: moderateScale(20),
+  }
 });
