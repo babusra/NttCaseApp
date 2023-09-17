@@ -1,4 +1,24 @@
 {
   "name": "NttCaseApp",
-  "displayName": "NttCaseApp"
+  "displayName": "NttCaseApp",
+  "expo": {
+    "name": "NttCaseApp",
+    "slug": "NttCaseApp",
+    "jsEngine": "hermes",
+    "ios": {
+      "bundleIdentifier": "com.NttCaseApp"
+    },
+    "android": {
+      "package": "com.NttCaseApp"
+    },
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/fc3292ca-3a32-47ae-8bd2-4963bd70d7db"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "fc3292ca-3a32-47ae-8bd2-4963bd70d7db"
+      }
+    }
+  }
 }

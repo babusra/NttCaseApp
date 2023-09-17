@@ -1,8 +1,7 @@
 import {View, Text, ImageBackground, TouchableOpacity} from 'react-native';
 import React, {FC, useEffect} from 'react';
-import LinearGradient from 'react-native-linear-gradient';
+import { LinearGradient } from "expo-linear-gradient";
 import {Product} from '../../../types/Product/ProductModel';
-import {horizontalScale, moderateScale} from '../../../utils/Dimension';
 import {Colors} from '../../../utils/Colors';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {navigation} from '../../../navigation/rootNavigation';
