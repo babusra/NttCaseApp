@@ -1,0 +1,32 @@
+{
+  "cli": {
+    "version": ">= 5.2.0"
+  },
+  "build": {
+    "prod": {
+      "distribution": "internal",
+      "releaseChannel":"default",
+      "android": {
+        "gradleCommand": ":app:assembleDebug",
+        "releaseChannel":"default"
+
+      },
+      "ios": {
+        "buildConfiguration": "Debug",
+        "releaseChannel":"default"
+
+      },
+      "channel": "default"
+    },
+    "preview": {
+      "distribution": "internal",
+      "channel": "preview"
+    },
+    "production": {
+      "channel": "default"
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

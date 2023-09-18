@@ -8,17 +8,25 @@
     "ios": {
       "bundleIdentifier": "com.NttCaseApp"
     },
+    "plugins": [
+      [
+        "expo-updates",
+        {
+          "username": "busraarigun"
+        }
+      ]
+    ],
     "android": {
       "package": "com.NttCaseApp"
     },
     "runtimeVersion": "1.0.0",
-    "updates": {
-      "url": "https://u.expo.dev/fc3292ca-3a32-47ae-8bd2-4963bd70d7db"
-    },
     "extra": {
       "eas": {
-        "projectId": "fc3292ca-3a32-47ae-8bd2-4963bd70d7db"
+        "projectId": "3176f7f8-bee9-4c36-9184-4f6538e5c261"
       }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/3176f7f8-bee9-4c36-9184-4f6538e5c261"
     }
   }
 }
