@@ -67,7 +67,7 @@ export function BottomTabBar({state, descriptors, navigation}: any) {
 
               <Icon name={options.tabBarIcon} size={27} color={isFocused? Colors.purple:Colors.darkGrey} style={{paddingBottom:8}}  />
               <Text style={{color:isFocused?Colors.purple:Colors.darkGrey}} >{label}</Text>
-              {options.tabBarIcon === 'shopping-basket'&& total!==0 && (
+              {options.tabBarIcon === 'shopping-cart'&& total!==0 && (
                 <View
                   style={{
                     alignItems: 'center',
