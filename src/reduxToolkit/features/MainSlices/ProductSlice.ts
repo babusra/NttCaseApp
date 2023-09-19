@@ -83,6 +83,11 @@ const ProductSlice = createSlice({
       );
 
       state.value.productsInBasket = updatedBasket;
+      state.value.totalProductPrice = state.value.productsInBasket.reduce(
+        (total, product) => total + Number(product.price) * product.total,
+        0,
+      );
+    
     },
 
     productAmountIncrement: (state, action: PayloadAction<Product>) => {
